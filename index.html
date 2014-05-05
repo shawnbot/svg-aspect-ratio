@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>svgAutosize</title>
+    <style>
+
+      body {
+        padding: 20px;
+        margin: 0;
+      }
+
+      svg {
+        display: block;
+        width: 100%;
+        border: 1px dotted #ccc;
+      }
+
+    </style>
+    <script src="../svg-autosize.js"></script>
+  </head>
+  <body>
+    <h1>SVG Autosize</h1>
+    <p>This is a proposal for how browsers should calculate the
+    <a href="http://dev.w3.org/csswg/css-images-3/#sizing">intrinsic aspect ratio</a>
+    of <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements">block-level</a>
+    SVG elements based on their
+    <a href="http://www.w3.org/TR/SVG11/coords.html#ViewBoxAttribute">viewBox</a>
+    attribute. The goal is to make it as easy to incorporate SVG elements into <a
+      href="http://en.wikipedia.org/wiki/Responsive_web_design">responsive</a>
+    layouts as it is with raster images.</p>
+
+    <p>This element should have 100% width and a proportional height (1/3 of
+    its calculated width):</p>
+
+    <svg id="svg1" viewBox="0 0 300 100">
+      <circle cx="50" cy="50" r="50" fill="cyan"></circle>
+      <circle cx="150" cy="50" r="50" fill="yellow"></circle>
+      <circle cx="250" cy="50" r="50" fill="magenta"></circle>
+    </svg>
+
+    <p>This one should always be 100px wide, because it has a 3/1 aspect ratio
+    and a height of 300:</p>
+
+    <svg id="svg2" viewBox="0 0 100 300" height="300">
+      <circle cx="50" cy="50" r="50" fill="cyan"></circle>
+      <circle cx="50" cy="150" r="50" fill="yellow"></circle>
+      <circle cx="50" cy="250" r="50" fill="magenta"></circle>
+    </svg>
+
+    <p>This one has a fixed width and height, and its contents should be
+    centered within its size per the <tt>preserveAspectRatio</tt> default. CSS
+    defines its width as 100%, which takes precedence over the inline width
+    attribute. (This could be remedied by changing the CSS selector to, say
+    <tt>svg:not([height])</tt>.)</p>
+
+    <svg id="svg3" viewBox="0 0 300 100" width="500" height="100">
+      <circle cx="50" cy="50" r="50" fill="cyan"></circle>
+      <circle cx="150" cy="50" r="50" fill="yellow"></circle>
+      <circle cx="250" cy="50" r="50" fill="magenta"></circle>
+    </svg>
+
+    <script>
+      svgAutosize.always();
+    </script>
+  </body>
+</html>
