@@ -72,8 +72,14 @@ Currently, the only way to have flexibly sized SVG elements that respect their a
 
 The [svg-autosize.js](https://github.com/shawnbot/svg-autosize/blob/master/svg-autosize.js) script included here implements the proposed algorithm and provides some useful global functions that you can call in the standards-compliant browser of your choice to enable the proposed behavior:
 
-#### <a href="#fn" name="fn">#</a> svgAutosize(*element*)
+<a href="#fn" name="fn">#</a> **svgAutosize(** *element* **)**
 
-#### <a href="#fn-all" name="fn-all">#</a> svgAutosize.all(*selector*)
+Apply the aspect ratio resizing algorithm to an SVG *element* by reference.
 
-#### <a href="#fn-always" name="fn-always">#</a> svgAutosize.always(*[selector]*)
+<a href="#fn-all" name="fn-all">#</a> **svgAutosize.all(** *selector* **)**
+
+Apply the aspect ratio resizing algorithm to all SVG elements matching CSS *selector*.
+
+<a href="#fn-always" name="fn-always">#</a> **svgAutosize.always(** *[selector]* **)**
+
+Call **svgAutosize.all(** *[selector]* **)** once, then add window `load` and `resize` event listeners to call it again when the document loads and when the window is resized.
