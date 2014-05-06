@@ -1,4 +1,4 @@
-# SVG Autosize
+# SVG Aspect Ratio
 This is a proposal for how browsers should calculate the *intrinsic aspect ratio* of SVG elements using their `viewBox` attribute, so that they behave more like images in flexible layouts.
 
 ## The Problem
