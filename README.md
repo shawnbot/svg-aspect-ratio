@@ -1,3 +1,11 @@
+# Huzzah!
+Dirk Schulze says in an email that:
+
+> I hope I understand the issue correctly. But what you describe has been wrong in WebKit and Blink for a very long time. We did change that behavior recently. With the next release, all major browsers but IE will use the value of viewBox to get the intrinsic ratio of the SVG file if no height was specified. You can test the change in a WebKit nightly or Chromium Canary.
+
+So it looks like the fix is on its way. In the meantime, you can still use [the script](#the-script) to shim the expected behavior.
+
+
 # SVG Aspect Ratio
 This is a proposal for how browsers should calculate the *intrinsic aspect ratio* of SVG elements using their `viewBox` attribute, so that they behave more like images in flexible layouts.
 
@@ -70,6 +78,8 @@ Currently, the only way to have flexibly sized SVG elements that respect their a
 4. Redraw your SVG elements whenever the window resizes, e.g. using [d3](http://d3js.org).
 5. Trust that your MVC framework of choice will Do the Right Thing for you.
 
+
+### The Script
 The [svg-autosize.js](https://github.com/shawnbot/svg-autosize/blob/master/svg-autosize.js) script included here implements the proposed algorithm and provides some useful global functions that you can call in the standards-compliant browser of your choice to enable the proposed behavior:
 
 <a href="#fn" name="fn">#</a> **svgAutosize(** *element* **)**
