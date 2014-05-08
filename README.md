@@ -1,9 +1,9 @@
 # Huzzah!
-Dirk Schulze says in an email that:
+Dirk Schulze writes in an email sent on May 8, 2014:
 
 > I hope I understand the issue correctly. But what you describe has been wrong in WebKit and Blink for a very long time. We did change that behavior recently. With the next release, all major browsers but IE will use the value of viewBox to get the intrinsic ratio of the SVG file if no height was specified. You can test the change in a WebKit nightly or Chromium Canary.
 
-So it looks like the fix is on its way. In the meantime, you can still use [the script](#the-script) to shim the expected behavior.
+So it looks like the fix is on its way. In the meantime, you can still use [the script](#the-script) to shim the expected behavior. I also made [this fiddle](http://jsfiddle.net/kJUJg/6/) to demonstrate the issue and solution, using the code in this repo.
 
 
 # SVG Aspect Ratio
